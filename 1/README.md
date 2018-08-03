@@ -26,15 +26,24 @@ en_US.utf-8
 
 4. Windows环境准备（厦门大学郑海山老师贡献本节内容）（Linux环境可以跳过这一步到5. 注册github账号）
 
-* 首先从[https://git-for-windows.github.io/](https://git-for-windows.github.io/)下载安装 windows下的Git命令行
+* 首先从[https://git-for-windows.github.io/](https://git-for-windows.github.io/),（网速慢的同学请移步[国内镜像](https://pan.baidu.com/s/1dFAE1Jb)），然后按默认选项安装即可。下载安装 windows下的Git命令行
 
-* 再从 [https://tortoisegit.org/](https://tortoisegit.org/) 下载安装 tortoiseGit 乌龟
+* 安装完成后，还需要最后一步设置，在命令行输入：
+	$ git config --global user.name "Your Name"
+	$ git config --global user.email "email@example.com"
 
-* 设置用户名和密码，运行tortoiseGit 乌龟，右键，打开TortoiseGit->Settings，第5项“Git”，有个“User Info”，“Name”输入名字，Email输入email即可。
+* 创建版本库
+	1.创建一个版本库非常简单，首先，选择一个合适的地方，创建一个空目录：
+		$ mkdir test
+		$ cd test
+	2.通过git init命令把这个目录变成Git可以管理的仓库：
+		$ git init
+		Initialized empty Git repository in /Users/test/.git/
+    瞬间Git就把仓库建好了，而且告诉你是一个空的仓库（empty Git repository），细心的读者可以发现当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。
 
-* 生成ssh key
+    如果你没有看到.git目录，那是因为这个目录默认是隐藏的，用ls -ah命令就可以看见。
+	3.把文件添加到版本库
 
-  打开 tortoiseGit 乌龟的安装目录，比如 C:\Program Files\TortoiseGit\bin ，打开 puttygen.exe ，点击“generate”按钮，点击完随机移动鼠标，会自动生成一个key，在“Key comment”里面输入你任意想写的东西，比如email。“Key passphrase”是key的密码保护，可以不需要密码。然后点击“Save private key”，保存成一个密钥，后缀名是ppk。这个密钥不能给任何人。再“Save public key”，保存公钥，后缀名选择.pub。然后把 “Public key for pasting into OpenSSH authorized_keys file: " 这串的内容放到Git web控制台的Profile setting->SSH Keys，"Add SSH Key"，上 ，这样子你就可以用密钥push 和pull Git内容了。公钥可以给任何人。
 
 5. 注册github账号
 
